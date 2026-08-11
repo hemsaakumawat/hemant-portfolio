@@ -127,6 +127,12 @@ export const useContactForm = () => {
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
+    console.log("EmailJS Config Check:", {
+      serviceId: !!serviceId,
+      templateId: !!templateId,
+      publicKey: !!publicKey
+    });
+
     // If EmailJS env variables are not configured yet, provide clear instruction state
     if (!serviceId || !templateId || !publicKey || serviceId === 'your_service_id') {
       console.warn(
