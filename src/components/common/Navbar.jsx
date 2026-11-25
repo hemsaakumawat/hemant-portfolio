@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Send, Code2 } from 'lucide-react';
+import { Menu, X, Send, Code2, Download } from 'lucide-react';
 
 const navItems = [
   { id: 'home', path: '/', label: 'Home' },
@@ -53,6 +53,7 @@ const Navbar = ({ personalData }) => {
           <button
             onClick={() => handleNavClick('/')}
             className="flex items-center gap-2.5 text-left group focus:outline-none cursor-pointer"
+            aria-label="Hemant Kumawat Home"
           >
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-purple-600 to-pink-500 p-[1px] shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition-transform duration-300">
               <div className="w-full h-full bg-[#0b0f19] rounded-[11px] flex items-center justify-center">
@@ -65,7 +66,7 @@ const Navbar = ({ personalData }) => {
                 <span className="gradient-text">.{personalData.name.split(' ')[1] || 'dev'}</span>
               </span>
               <span className="block text-[10px] text-slate-400 tracking-wider font-mono uppercase">
-                Student Developer
+                Web Developer
               </span>
             </div>
           </button>
@@ -100,6 +101,15 @@ const Navbar = ({ personalData }) => {
 
           {/* Desktop Action Buttons */}
           <div className="hidden lg:flex items-center gap-3">
+            <a
+              href={personalData.resumeUrl}
+              download="Hemant-Kumawat-Resume.pdf"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold text-slate-300 bg-slate-800/80 hover:bg-slate-700 border border-slate-700 hover:text-white transition-all duration-200 shadow-sm cursor-pointer"
+            >
+              <Download className="w-3.5 h-3.5 text-pink-400" />
+              <span>Resume</span>
+            </a>
+
             <button
               onClick={() => handleNavClick('/contact')}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 transition-all duration-300 shadow-md shadow-indigo-500/20 hover:shadow-indigo-500/40 hover:-translate-y-0.5 cursor-pointer"

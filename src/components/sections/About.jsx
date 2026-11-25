@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import SectionHeader from '../common/SectionHeader';
-import { Code2, Zap, Layout, Server, MapPin, Mail, Calendar, CheckCircle2, Download } from 'lucide-react';
+import { Code2, Zap, Layout, Server, MapPin, Mail, Download } from 'lucide-react';
 
 const iconMap = {
   Code2: Code2,
@@ -32,13 +32,13 @@ const About = ({ personalData, highlights }) => {
           >
             <div className="space-y-4">
               <h3 className="text-2xl font-bold text-white font-heading flex items-center gap-3">
-                <span>Engineering with Purpose & Precision</span>
+                <span>Building Web Applications with Precision</span>
               </h3>
               <p className="text-slate-300 text-base leading-relaxed">
                 {personalData.bio}
               </p>
               <p className="text-slate-400 text-sm leading-relaxed">
-                Over the past 6+ years, I've collaborated with early-stage startups and enterprise engineering teams to transform ambitious ideas into production-ready web platforms. I prioritize code maintainability, end-user accessibility, and performance optimization from day one.
+                I focus on writing clean, modular code, crafting responsive interfaces, and integrating secure backend services. My primary goal is to contribute to impactful web applications, solve real-world problems, and continuously level up as a Full-Stack Web Developer.
               </p>
             </div>
 

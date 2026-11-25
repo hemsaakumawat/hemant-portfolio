@@ -1,30 +1,29 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { Mail, ArrowUp, Code2, Heart } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, TwitterIcon } from './Icons';
 
 const Footer = ({ personalData }) => {
+  const navigate = useNavigate();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const navLinks = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'services', label: 'Services' },
-    { id: 'contact', label: 'Contact' }
+    { id: 'home', path: '/', label: 'Home' },
+    { id: 'about', path: '/about', label: 'About' },
+    { id: 'skills', path: '/skills', label: 'Skills' },
+    { id: 'projects', path: '/projects', label: 'Projects' },
+    { id: 'experience', path: '/experience', label: 'Experience' },
+    { id: 'services', path: '/services', label: 'Services' },
+    { id: 'contact', path: '/contact', label: 'Contact' },
+    { id: 'resume', path: '/resume', label: 'Resume' }
   ];
 
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const yOffset = -80;
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
+  const handleNavClick = (path) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -42,10 +41,15 @@ const Footer = ({ personalData }) => {
                   <Code2 className="w-4 h-4 text-indigo-400" />
                 </div>
               </div>
-              <span className="text-xl font-bold text-white tracking-tight font-heading">
-                {personalData.name.split(' ')[0]}
-                <span className="gradient-text">.{personalData.name.split(' ')[1] || 'dev'}</span>
-              </span>
+              <div>
+                <span className="text-xl font-bold text-white tracking-tight font-heading">
+                  {personalData.name.split(' ')[0]}
+                  <span className="gradient-text">.{personalData.name.split(' ')[1] || 'dev'}</span>
+                </span>
+                <span className="block text-[10px] text-slate-400 tracking-wider font-mono uppercase">
+                  Web Developer
+                </span>
+              </div>
             </div>
 
             <p className="text-slate-400 text-sm max-w-md leading-relaxed">
@@ -100,8 +104,8 @@ const Footer = ({ personalData }) => {
               {navLinks.slice(0, 4).map((link) => (
                 <li key={link.id}>
                   <button
-                    onClick={() => scrollToSection(link.id)}
-                    className="text-slate-400 hover:text-indigo-400 text-sm transition-colors focus:outline-none"
+                    onClick={() => handleNavClick(link.path)}
+                    className="text-slate-400 hover:text-indigo-400 text-sm transition-colors focus:outline-none cursor-pointer"
                   >
                     {link.label}
                   </button>
@@ -119,8 +123,8 @@ const Footer = ({ personalData }) => {
               {navLinks.slice(4).map((link) => (
                 <li key={link.id}>
                   <button
-                    onClick={() => scrollToSection(link.id)}
-                    className="text-slate-400 hover:text-indigo-400 text-sm transition-colors focus:outline-none"
+                    onClick={() => handleNavClick(link.path)}
+                    className="text-slate-400 hover:text-indigo-400 text-sm transition-colors focus:outline-none cursor-pointer"
                   >
                     {link.label}
                   </button>
@@ -133,13 +137,12 @@ const Footer = ({ personalData }) => {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p className="flex items-center gap-1.5">
-            © {new Date().getFullYear()} {personalData.name}. Crafted with{' '}
-            <Heart className="w-3.5 h-3.5 text-pink-500 inline fill-pink-500" /> using React, Vite & Tailwind CSS.
+            © {new Date().getFullYear()} Hemant Kumawat. All Rights Reserved.
           </p>
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-800/80 border border-slate-700/60 text-slate-300 hover:text-white hover:border-indigo-500/50 hover:bg-indigo-600/20 transition-all focus:outline-none group"
+            className="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-800/80 border border-slate-700/60 text-slate-300 hover:text-white hover:border-indigo-500/50 hover:bg-indigo-600/20 transition-all focus:outline-none group cursor-pointer"
             aria-label="Back to top"
           >
             <span>Back to top</span>

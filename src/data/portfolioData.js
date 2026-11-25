@@ -1,10 +1,10 @@
 export const PORTFOLIO_DATA = {
   personal: {
     name: "Hemant Kumawat",
-    role: "Student / Aspiring Full-Stack Developer",
+    role: "Web Developer",
     tagline: "Building modern web applications, exploring full-stack engineering, and sharing my technical learning journey.",
-    bio: "I am a passionate student and aspiring Full-Stack Developer dedicated to mastering modern web development. I focus on building responsive frontend interfaces with HTML, CSS, JavaScript, React.js, and EJS, alongside robust backend architectures with Node.js, Express.js, SQL, MongoDB, Supabase, and WordPress. My goal is to build real-world projects, continuously expand my technical knowledge, and establish a strong developer personal brand.",
-    location: "India (Open for Collaboration & Learning Opportunities)",
+    bio: "I am a passionate Web Developer dedicated to building responsive, modern, and user-centric web applications. My core stack includes frontend engineering with HTML, CSS, JavaScript, React.js, and EJS, along with backend REST APIs and databases using Node.js, Express.js, SQL, MongoDB, and Supabase. I utilize Git, GitHub, and VS Code daily to write clean, maintainable code, build real-world web projects, and deliver exceptional digital experiences.",
+    location: "India (Open for Collaboration & Developer Opportunities)",
     email: "hemantkumawat.dev@gmail.com",
     availability: "Open for Collaboration & Developer Projects",
     resumeUrl: "/resume/Hemant-Kumawat-Resume.pdf",
@@ -50,7 +50,8 @@ export const PORTFOLIO_DATA = {
       { id: "all", name: "All Technologies" },
       { id: "frontend", name: "Frontend" },
       { id: "backend", name: "Backend" },
-      { id: "database", name: "Database & Services" }
+      { id: "database", name: "Database" },
+      { id: "tools", name: "Tools" }
     ],
     items: [
       // Frontend
@@ -68,7 +69,12 @@ export const PORTFOLIO_DATA = {
       // Database & Backend Services
       { name: "SQL", category: "database", level: 78, icon: "Database", color: "from-blue-500 to-cyan-600" },
       { name: "MongoDB", category: "database", level: 80, icon: "Database", color: "from-emerald-600 to-teal-700" },
-      { name: "Supabase", category: "database", level: 75, icon: "Cloud", color: "from-emerald-400 to-green-500" }
+      { name: "Supabase", category: "database", level: 75, icon: "Cloud", color: "from-emerald-400 to-green-500" },
+
+      // Tools
+      { name: "Git", category: "tools", level: 85, icon: "GitBranch", color: "from-orange-600 to-amber-600" },
+      { name: "GitHub", category: "tools", level: 88, icon: "Code", color: "from-slate-400 to-slate-200" },
+      { name: "VS Code", category: "tools", level: 90, icon: "Terminal", color: "from-blue-500 to-sky-400" }
     ]
   },
 

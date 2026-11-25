@@ -1,16 +1,15 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Download, Send, Sparkles, ArrowDown, Code, CheckCircle2, Award } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, TwitterIcon } from '../common/Icons';
 
 const Hero = ({ personalData, stats }) => {
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const yOffset = -80;
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
+  const navigate = useNavigate();
+
+  const handleAction = (path) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -71,7 +70,7 @@ const Hero = ({ personalData, stats }) => {
               className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2"
             >
               <button
-                onClick={() => scrollToSection('projects')}
+                onClick={() => handleAction('/projects')}
                 className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-500 hover:to-pink-500 shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
               >
                 <Sparkles className="w-4 h-4 text-yellow-300" />
@@ -79,7 +78,7 @@ const Hero = ({ personalData, stats }) => {
               </button>
 
               <button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => handleAction('/contact')}
                 className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-2xl text-sm font-semibold text-slate-200 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 hover:border-slate-600 hover:text-white transition-all duration-200 cursor-pointer"
               >
                 <Send className="w-4 h-4 text-indigo-400" />
